@@ -1,0 +1,31 @@
+<div *ngFor="let followerOnCurrentPage of followersOnCurrentPage"
+     class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="avatar media-object"
+           src="{{ followerOnCurrentPage.avatar_url }}"
+           alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <a [routerLink]="['/followers', followerOnCurrentPage.id, followerOnCurrentPage.login]">{{
+        followerOnCurrentPage.login }}</a>
+    </h4>
+    <a href="follower.html_url">{{ followerOnCurrentPage.html_url }}</a>
+  </div>
+
+</div>
+<div class="text-center">
+  <ul class="pagination">
+    <li *ngFor="let page of pages">
+      <a href="#"
+         [class.active]="currentPage===page"
+         routerLink='/followers'
+         [queryParams]="{page:page}"
+         routerLinkActive="active">
+        {{page}}
+      </a>
+    </li>
+  </ul>
+</div>

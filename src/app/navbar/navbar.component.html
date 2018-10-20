@@ -1,0 +1,51 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+          <a href="#"
+             routerLink='/'>
+            Home
+          </a>
+        </li>
+        <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: false}">
+          <a href="#"
+             routerLink='/followers'>
+            Followers
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="right navbar-right">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: false}"
+            *ngIf="!authService.authenticated">
+          <a href="#"
+             routerLink='/signup'>
+            Signup
+          </a>
+        </li>
+        <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: false}"
+            *ngIf="!authService.authenticated">
+          <a href="#"
+             routerLink='/login'>
+            Login
+          </a>
+        </li>
+        <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: false}"
+            *ngIf="authService.authenticated">
+          <a href="#"
+             routerLink='/login'
+             (click)="authService.signOut()">
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
