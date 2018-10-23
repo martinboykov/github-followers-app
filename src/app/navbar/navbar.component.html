@@ -22,7 +22,7 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: false}"
-            *ngIf="!authService.authenticated">
+            *ngIf="authenticated === null">
           <a href="#"
              routerLink='/signup'>
             Signup
@@ -30,7 +30,7 @@
         </li>
         <li routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: false}"
-            *ngIf="!authService.authenticated">
+            *ngIf="authenticated === null">
           <a href="#"
              routerLink='/login'>
             Login
@@ -38,10 +38,10 @@
         </li>
         <li routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: false}"
-            *ngIf="authService.authenticated">
+            *ngIf="authenticated !== null">
           <a href="#"
              routerLink='/login'
-             (click)="authService.signOut()">
+             (click)="signOut()">
             Logout
           </a>
         </li>
